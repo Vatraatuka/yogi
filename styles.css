@@ -1,0 +1,239 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #0984ff;
+  border-bottom: 1px solid #0080ff;
+}
+
+.header img {
+  height: 40px;
+}
+/* Gaya untuk Sidebar */
+.sidebar {
+  height: calc(
+    100% - 60px
+  ); /* Menutupi seluruh tinggi layar minus tinggi header/logo */
+  width: 250px; /* Lebar sidebar */
+  position: fixed; /* Agar sidebar tetap di sisi kiri */
+  top: 60px; /* Memberikan ruang untuk header/logo */
+  left: 0;
+  background-color: #ffa500; /* Warna latar belakang orange */
+  color: rgb(0, 0, 0); /* Warna teks */
+  padding-top: 20px; /* Spasi di atas */
+  box-sizing: border-box; /* Agar padding tidak memengaruhi lebar */
+  font-family: Arial, sans-serif; /* Font yang digunakan */
+  z-index: 1; /* Pastikan sidebar tetap di belakang konten utama dan header */
+
+  overflow-y: auto; /* Membuat sidebar dapat di-scroll jika kontennya lebih tinggi */
+  padding-bottom: 20px; /* Ruang di bagian bawah agar scroll tidak terhalang */
+}
+
+/* Gaya untuk link di sidebar */
+.sidebar a {
+  display: block;
+  color: #f83030; /* Warna teks */
+  padding: 15px 20px; /* Padding di dalam link */
+  text-decoration: none; /* Menghapus garis bawah pada teks */
+  font-size: 18px; /* Ukuran font */
+  border-bottom: 1px solid hsl(0, 87%, 49%); /* Garis pemisah antar link */
+  transition: background-color 0.3s; /* Efek transisi saat hover */
+  position: relative; /* Untuk posisi submenu */
+}
+
+/* Gaya untuk link yang di-hover */
+.sidebar a:hover {
+  background-color: hwb(24 3% 0% / 0.945); /* Warna latar belakang saat hover */
+}
+
+.sidebar a i {
+  margin-right: 10px; /* Memberikan jarak antara ikon dan teks */
+  font-size: 20px; /* Ukuran ikon */
+}
+
+/* Gaya untuk submenu */
+.submenu {
+  display: none; /* Menyembunyikan submenu secara default */
+  background-color: hsl(36, 66%, 92%); /* Warna latar belakang submenu */
+  padding-left: 20px; /* Memberikan padding pada submenu */
+  border-left: 3px solid #f5ebeb; /* Garis pemisah submenu */
+}
+
+/* Menampilkan submenu saat menu-item di-hover */
+.menu-item:hover .submenu {
+  display: block; /* Menampilkan submenu saat menu-item di-hover */
+}
+
+/* Gaya untuk item di submenu */
+.submenu a {
+  color: white; /* Warna teks submenu */
+  padding: 10px 20px; /* Padding submenu */
+  font-size: 16px; /* Ukuran font submenu */
+  text-decoration: none; /* Menghapus garis bawah */
+}
+
+/* Menambahkan efek hover pada submenu */
+.submenu a:hover {
+  background-color: #575757; /* Warna latar belakang submenu saat hover */
+}
+
+/* Gaya untuk header atau logo */
+.header {
+  position: fixed; /* Agar tetap di atas saat halaman di-scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 5; /* Pastikan header/logo di atas sidebar dan konten */
+  padding: 10px 20px; /* Ruang untuk logo dan elemen header lainnya */
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Memberikan bayangan pada header agar lebih jelas */
+  display: flex; /* Menampilkan elemen header dalam satu baris */
+  justify-content: space-between; /* Membuat jarak antara logo dan elemen lainnya seperti search bar */
+  align-items: center; /* Menjaga agar elemen header berada sejajar vertikal */
+}
+/* Gaya untuk gambar yang ada di konten */
+.main-content img {
+  max-width: 100%; /* Agar gambar tidak melebihi lebar konten */
+  height: auto; /* Menjaga rasio gambar */
+}
+
+/* Gaya untuk gambar logo dalam header */
+.header .site-logo img {
+  width: 50px; /* Mengatur lebar gambar agar lebih kecil */
+  height: auto; /* Menjaga rasio aspek gambar tetap */
+}
+
+/* Gaya untuk konten utama (misalnya gambar atau konten lain) */
+.main-content {
+  margin-left: 250px; /* Memberikan ruang untuk sidebar */
+  padding: 20px; /* Padding untuk konten utama */
+  background-color: #f8f9fa; /* Warna latar belakang konten utama */
+  box-sizing: border-box;
+  z-index: 2; /* Pastikan konten utama tetap di atas sidebar */
+  margin-top: 60px; /* Memberikan ruang di atas konten utama untuk header/logo */
+  overflow: auto; /* Agar konten tetap ter-scroll dengan baik jika terlalu panjang */
+}
+
+/* Gaya untuk gambar yang ada di konten */
+.main-content img {
+  max-width: 100%; /* Agar gambar tidak melebihi lebar konten */
+  height: auto; /* Menjaga rasio gambar */
+}
+.site-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 20px; /* Memberi jarak antara teks dan search bar */
+  flex: 1;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.search-bar input {
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  width: 200px;
+}
+
+/* Tombol pencarian */
+.search-bar button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff950b; /* Warna tombol */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Efek transisi warna saat hover */
+  width: auto; /* Menyesuaikan dengan ukuran tombol berdasarkan konten */
+}
+
+/* Hover Effect pada Tombol */
+.search-bar button:hover {
+  background-color: #ff7b00; /* Warna tombol saat hover */
+}
+/* Gaya untuk sidebar kanan */
+.sidebar-right {
+  width: 300px; /* Lebar sidebar */
+  padding: 20px; /* Padding di sekitar sidebar */
+  background-color: #f4f4f4; /* Warna latar belakang yang terang */
+  border-left: 1px solid #e9ecef; /* Garis pembatas di sebelah kiri */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+}
+
+/* Gaya untuk judul pengumuman */
+.sidebar-right h3 {
+  font-size: 22px; /* Ukuran font untuk judul */
+  font-weight: bold; /* Menebalkan font */
+  color: #333; /* Warna teks judul */
+  margin-bottom: 15px; /* Memberikan jarak bawah pada judul */
+}
+
+/* Gaya untuk setiap item dalam daftar */
+.sidebar-right ul {
+  list-style-type: none; /* Menghilangkan bullet points */
+  padding-left: 0; /* Menghilangkan padding default pada <ul> */
+  margin: 0; /* Menghilangkan margin default */
+}
+
+/* Gaya untuk setiap item <li> dalam daftar */
+.sidebar-right ul li {
+  font-size: 16px; /* Ukuran font untuk item */
+  line-height: 1.6; /* Jarak antar baris */
+  color: #333; /* Warna teks item */
+  margin-bottom: 10px; /* Jarak antar item */
+}
+
+/* Gaya untuk link di dalam daftar */
+.sidebar-right ul li a {
+  text-decoration: none; /* Menghilangkan garis bawah pada link */
+  color: #333; /* Warna teks hitam untuk link */
+  font-weight: normal; /* Font normal untuk link */
+  transition: color 0.3s ease; /* Efek transisi pada perubahan warna */
+}
+
+/* Mengubah warna link saat hover */
+.sidebar-right ul li a:hover {
+  color: #0056b3; /* Mengubah warna teks menjadi biru saat hover */
+  text-decoration: underline; /* Menambahkan garis bawah saat hover */
+}
+
+/* Gaya untuk subjudul pengumuman */
+.sidebar-right h4 {
+  font-size: 20px; /* Ukuran font untuk subjudul */
+  font-weight: bold; /* Menebalkan font */
+  color: #333; /* Warna teks */
+  margin-top: 20px; /* Memberikan jarak atas */
+}
+
+/* Gaya untuk sidebar kanan dengan scrollbar */
+.sidebar-right {
+  width: 300px; /* Lebar sidebar */
+  padding: 20px; /* Padding di sekitar sidebar */
+  background-color: #f4f4f4; /* Warna latar belakang yang terang */
+  border-left: 1px solid #e9ecef; /* Garis pembatas di sebelah kiri */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+  height: calc(
+    100vh - 60px
+  ); /* Menentukan tinggi sidebar agar tidak melebihi layar */
+  overflow-y: auto; /* Agar sidebar memiliki scroll jika konten melebihi tinggi */
+}
